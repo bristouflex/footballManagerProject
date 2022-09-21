@@ -40,7 +40,7 @@ export const FootballerCard: React.FC<FootballerCardProps> = ({ footballer }) =>
 			<Line>{new Date(birthdate).toDateString()}</Line>
 			<Line> {role} </Line>
 			<Line>{clubs.join(", ")}</Line>
-			<div style={{ display: "flex", flexDirection: "row" }}>
+			<div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
 				<Button onClick={handleModify}>Modify</Button>
 				<Button onClick={handleDelete}>Delete</Button>
 			</div>

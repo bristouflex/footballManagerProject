@@ -6,6 +6,7 @@ import { fillInfoFootballer, resetFootballer, fetchFootballers } from "../../../
 import { FootballerService } from "../../../services/FootballerService";
 import { Footballer } from "../../../types/Footballer";
 import { Button } from "../../atoms/Button";
+import Line from "../../atoms/Line";
 
 export const FootballerForm = () => {
 	const dispatch = useDispatch();
@@ -66,9 +67,9 @@ export const FootballerForm = () => {
 		<div>
 			<form onSubmit={handleSubmit}>
 				<input type="hidden" name="_id" value={newFootballer._id} />
-				<input type="text" name="firstname" value={newFootballer.firstname} onChange={handleChange} />
-				<input type="text" name="lastname" value={newFootballer.lastname} onChange={handleChange} />
-				<input type="text" name="image" value={newFootballer.image} onChange={handleChange} />
+				<input type="text" placeholder="firstname" name="firstname" value={newFootballer.firstname} onChange={handleChange} />
+				<input type="text" placeholder="lastname" name="lastname" value={newFootballer.lastname} onChange={handleChange} />
+				<input type="text" placeholder="image url" name="image" value={newFootballer.image} onChange={handleChange} />
 				<input type="date" name="birthdate" value={dateValue} onChange={handleChange} />
 				<select name="role" value={newFootballer.role} onChange={handleChange}>
 					{(Object.keys(FootballerRoles) as Array<keyof typeof FootballerRoles>).map((role) => {
@@ -79,6 +80,7 @@ export const FootballerForm = () => {
 						);
 					})}
 				</select>
+				<Line>Clubs:</Line>
 				{(Object.keys(FootballClubs) as Array<keyof typeof FootballClubs>).map((club) => {
 					return (
 						<label key={club}>
