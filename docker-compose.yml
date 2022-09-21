@@ -1,0 +1,26 @@
+version: "3.8"
+services: 
+  appFrontend:
+    image: footballerfrontend
+    ports: 
+      - "3000:3000"
+    networks: 
+      - networkApp
+    environment: 
+      CHOKIDAR_USEPOLLING: "true"
+    volumes: 
+      - ./frontend:/app
+  appApi:
+    image: footballerbackend 
+    ports: 
+      - "9090:9090"
+    networks: 
+      - networkApp
+    environment: 
+      DB_HOST: appBdd
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - ./backend:/app
+networks: 
+  networkApp:
+
